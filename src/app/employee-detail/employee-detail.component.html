@@ -1,0 +1,28 @@
+<mat-card  class="mat-elevation-z8">
+  <mat-card-header>Employee Information</mat-card-header>
+    <mat-form-field appearance="standard">
+      <mat-label>First Name</mat-label>
+      <input matInput id="firstName" name="firstName" type="text" required [(ngModel)]="employee.firstName">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+      <mat-label>Last Name</mat-label>
+      <input matInput id="lastName" name="lastName" type="text" required [(ngModel)]="employee.lastName">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+      <mat-label>Age</mat-label>
+      <input matInput id="age" name="age" type="text" required [(ngModel)]="employee.age">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+      <mat-label>Department</mat-label>
+      <mat-select [(ngModel)]="employee.department"> 
+        <mat-option *ngFor="let dept of deparmentOptions" [value]="dept">{{ dept }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <div class="flex">
+      <button mat-raised-button color="primary" (click)="updateEmployeeDetails(employee)">Update Employee</button>
+    </div>
+</mat-card>
