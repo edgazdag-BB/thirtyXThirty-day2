@@ -26,9 +26,8 @@ export class AppComponent {
   }
 
   updateEmployeeDetails(employee: Employee) {
-    
     this.currentEmployee = {...employee};
-
+    
     this.employeeList = this.employeeList.map((emp) => 
       emp.id === employee.id ? {...employee} : emp
     );
@@ -36,15 +35,12 @@ export class AppComponent {
 
   addEmployee() {
     this.idCounter++;
-    let newEmployee: Employee = {id: this.idCounter, firstName: '', lastName: '', age: 0, department: ''};
-    this.employeeList.push(newEmployee);
-    this.employeeList = [...this.employeeList];
-    this.currentEmployee = {...newEmployee};
+    this.employeeList = [...this.employeeList, {id: this.idCounter, firstName: '', lastName: '', age: 0, department: ''}];
+    //this.currentEmployee = {...newEmployee};
   }
 
-  removeEmployee(index: number) {
-    this.employeeList.splice(index, 1); 
+  removeEmployee(id: number) {
+    this.employeeList = this.employeeList.filter((emp) => emp.id !== id);
     this.currentEmployee = this.employeeList[0];
-    this.employeeList = [...this.employeeList];
   }
 }

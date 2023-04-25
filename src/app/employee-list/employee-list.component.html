@@ -1,5 +1,5 @@
 <div class="flex">
-  <button mat-raised-button color="primary" (click)="addNewEmployee('addNew')">
+  <button mat-raised-button color="primary" (click)="addEmployee.emit()">
     Add Employee
   </button>
 </div>
@@ -22,8 +22,8 @@
 
   <ng-container matColumnDef="delete">
     <th mat-header-cell *matHeaderCellDef>Delete</th>
-    <td mat-cell *matCellDef="let person; let i = index">
-      <button mat-mini-fab class="delete-button" (click)="removeEmployee(i)">
+    <td mat-cell *matCellDef="let employee;">
+      <button mat-mini-fab class="delete-button" (click)="deleteEmployee.emit(employee.id);">
         <mat-icon >delete</mat-icon>
       </button>
     </td>

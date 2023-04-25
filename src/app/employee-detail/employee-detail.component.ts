@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Employee } from '../model/employee';
 
 @Component({
@@ -6,18 +6,12 @@ import { Employee } from '../model/employee';
   templateUrl: './employee-detail.component.html',
   styleUrls: ['./employee-detail.component.scss']
 })
-export class EmployeeDetailComponent implements OnInit {
+export class EmployeeDetailComponent {
   @Input() employee!: Employee;
   @Output() employeeUpdate: EventEmitter<Employee> = new EventEmitter<Employee>();
 
-  deparmentOptions: string[] = ['HR', 'IT', 'Sales', 'Marketing'];
+  departmentOptions: string[] = ['HR', 'IT', 'Sales', 'Marketing'];
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  updateEmployeeDetails(employee: Employee) {
-    this.employeeUpdate.emit(employee);
-  }
 }

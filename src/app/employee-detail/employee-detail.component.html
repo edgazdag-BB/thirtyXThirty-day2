@@ -18,11 +18,11 @@
     <mat-form-field appearance="standard">
       <mat-label>Department</mat-label>
       <mat-select [(ngModel)]="employee.department"> 
-        <mat-option *ngFor="let dept of deparmentOptions" [value]="dept">{{ dept }}</mat-option>
+        <mat-option *ngFor="let dept of departmentOptions" [value]="dept">{{ dept }}</mat-option>
       </mat-select>
     </mat-form-field>
     <br>
     <div class="flex">
-      <button mat-raised-button color="primary" (click)="updateEmployeeDetails(employee)">Update Employee</button>
+      <button mat-raised-button color="primary" (click)="employeeUpdate.emit(employee)">Update Employee</button>
     </div>
 </mat-card>
